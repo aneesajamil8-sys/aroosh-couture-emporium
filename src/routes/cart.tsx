@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
 import { formatPKR } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 
@@ -18,7 +17,7 @@ export const Route = createFileRoute("/cart")({
 });
 
 function Cart() {
-  const { detailed, total, setQty, remove, clear } = useCart();
+  const { detailed, total, setQty, remove } = useCart();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -96,16 +95,12 @@ function Cart() {
               <span className="font-serif text-2xl text-gold">{formatPKR(total)}</span>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => {
-                  clear();
-                  toast.success("Order placed — thank you for shopping with Aroosh Collections!");
-                }}
-                className="flex-1 rounded-md bg-gold px-8 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-primary-foreground transition-colors hover:bg-gold/85"
+              <Link
+                to="/checkout"
+                className="flex-1 rounded-md bg-gold px-8 py-3 text-center text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-primary-foreground transition-colors hover:bg-gold/85"
               >
-                Place Order
-              </button>
+                Proceed to Checkout
+              </Link>
               <Link
                 to="/shop"
                 className="rounded-md border border-gold/60 px-8 py-3 text-[0.7rem] uppercase tracking-[0.25em] text-gold transition-colors hover:bg-gold hover:text-primary-foreground"
