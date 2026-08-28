@@ -1,10 +1,12 @@
 import { ShoppingBag } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { formatPKR, type Product } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 
 export function ProductCard({ product }: { product: Product }) {
   const { add } = useCart();
+  const navigate = useNavigate();
   return (
     <article className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-gold/50">
       <div className="relative aspect-[4/5] overflow-hidden">
@@ -33,6 +35,16 @@ export function ProductCard({ product }: { product: Product }) {
         >
           <ShoppingBag className="h-3.5 w-3.5" strokeWidth={2} />
           Add to Cart
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            add(product.id);
+            navigate({ to: "/checkout" });
+          }}
+          className="inline-flex items-center justify-center rounded-md border border-gold/60 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold hover:text-primary-foreground"
+        >
+          Shop Now
         </button>
       </div>
     </article>
