@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
 import { formatPKR } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 
@@ -18,7 +17,7 @@ export const Route = createFileRoute("/cart")({
 });
 
 function Cart() {
-  const { detailed, total, setQty, remove, clear } = useCart();
+  const { detailed, total, setQty, remove } = useCart();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
