@@ -44,10 +44,10 @@ export function Header() {
         </Link>
       </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-8">
-        <Link to="/" aria-label="Aroosh Collections home">
+        <Link to="/" aria-label="Aroosh Collections home" className="-my-1 py-1">
           <Logo compact />
         </Link>
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <Link
               key={l.to}
