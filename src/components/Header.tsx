@@ -34,15 +34,6 @@ export function Header() {
           : "bg-gradient-to-b from-background/90 via-background/60 to-transparent backdrop-blur-[2px]"
       }`}
     >
-      {/* top bar */}
-      <div className="flex justify-end border-b border-border/50 px-4 py-1 sm:px-8">
-        <Link
-          to="/staff"
-          className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground transition-colors hover:text-gold"
-        >
-          Staff Login
-        </Link>
-      </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-8">
         <Link to="/" aria-label="Aroosh Collections home" className="-my-1 py-1">
           <Logo compact />
