@@ -100,11 +100,11 @@ function ProductDetail() {
           <div className="overflow-hidden rounded-lg border border-border bg-card">
             <img
               src={product.image}
-              alt={`${product.name} — ${VIEWS[view].label.toLowerCase()} view`}
+              alt={`${product.name} — ${VIEWS[view]?.label.toLowerCase() ?? "front"} view`}
               width={900}
               height={1125}
               className="aspect-[4/5] w-full object-cover transition-all duration-500"
-              style={{ objectPosition: VIEWS[view].position }}
+              style={{ objectPosition: VIEWS[view]?.position ?? "50% 20%" }}
             />
           </div>
           <div className="mt-4 flex gap-3">

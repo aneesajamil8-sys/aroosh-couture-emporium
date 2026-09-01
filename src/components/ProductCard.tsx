@@ -1,5 +1,5 @@
 import { ShoppingBag } from "lucide-react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { formatPKR, type Product } from "@/lib/products";
 import { useCart } from "@/lib/cart";
@@ -9,7 +9,12 @@ export function ProductCard({ product }: { product: Product }) {
   const navigate = useNavigate();
   return (
     <article className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-gold/50">
-      <div className="relative aspect-[4/5] overflow-hidden">
+      <Link
+        to="/product/$id"
+        params={{ id: product.id }}
+        className="relative block aspect-[4/5] overflow-hidden"
+        aria-label={`View ${product.name}`}
+      >
         <img
           src={product.image}
           alt={product.name}
@@ -21,9 +26,17 @@ export function ProductCard({ product }: { product: Product }) {
         <span className="absolute left-3 top-3 rounded-full border border-gold/40 bg-background/80 px-3 py-1 text-[0.6rem] uppercase tracking-[0.2em] text-gold backdrop-blur">
           {product.category}
         </span>
-      </div>
+      </Link>
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <h3 className="text-lg text-cream">{product.name}</h3>
+        <h3 className="text-lg text-cream">
+          <Link
+            to="/product/$id"
+            params={{ id: product.id }}
+            className="transition-colors hover:text-gold"
+          >
+            {product.name}
+          </Link>
+        </h3>
         <p className="font-serif text-lg text-gold">{formatPKR(product.price)}</p>
         <button
           type="button"
