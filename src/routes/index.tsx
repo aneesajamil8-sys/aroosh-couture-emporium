@@ -38,7 +38,7 @@ function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/30" />
-        <div className="fade-up relative z-10 px-4 pb-16 text-center">
+        <div className="fade-up relative z-10 flex flex-col items-center justify-center px-4 text-center">
           <p className="mb-4 text-[0.7rem] uppercase tracking-[0.5em] text-gold">
             Aroosh Collections
           </p>
