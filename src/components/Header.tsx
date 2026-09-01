@@ -29,7 +29,9 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b border-border bg-background/95 backdrop-blur" : "bg-transparent"
+        scrolled
+          ? "border-b border-border bg-background/95 shadow-[0_8px_30px_rgba(0,0,0,0.45)] backdrop-blur"
+          : "bg-gradient-to-b from-background/90 via-background/60 to-transparent backdrop-blur-[2px]"
       }`}
     >
       {/* top bar */}
